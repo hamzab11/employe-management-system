@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahbpaf.p4.LoginController">
+
+    <Pane maxHeight="840" maxWidth="1200" prefHeight="840" prefWidth="1200" style="-fx-background-color: white; -fx-background-radius: 10;">
+
+        <ImageView fitHeight="100" fitWidth="81" layoutX="280" layoutY="20" preserveRatio="false">
+            <image>
+                <Image url="@../images/appIcon.png" />
+            </image>
+        </ImageView>
+
+
+        <Label layoutX="170" layoutY="120" style="-fx-text-fill: #1740C8; -fx-font-size: 22; -fx-font-weight: bold;" text="Employee Management System" textAlignment="CENTER" />
+
+        <VBox layoutX="120" layoutY="160" prefWidth="420" spacing="25">
+            <children>
+                <VBox alignment="CENTER" spacing="10">
+                    <children>
+                        <Label text="Login ">
+                            <font>
+                                <Font size="38" />
+                            </font>
+                        </Label>
+                        <Label style="-fx-text-fill: #9A9A9A; -fx-font-size: 15;" text="In Charge Agent " wrapText="true" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="10">
+                    <children>
+                        <Label style="-fx-font-size: 18;" text="User name" />
+                        <TextField fx:id="emailField" prefHeight="55" promptText="matricule" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #D9D9D9; -fx-font-size: 15;" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="10">
+                    <children>
+                        <Label style="-fx-font-size: 18;" text="Enter your Password" />
+                        <PasswordField fx:id="passwordField" prefHeight="55" promptText="password" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #D9D9D9; -fx-font-size: 15;" />
+                    </children>
+                </VBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="120">
+                    <children>
+                        <CheckBox style="-fx-text-fill: #999999;" text="Remember me?" />
+                        <Hyperlink style="-fx-text-fill: #999999;" text="Forgot Password ?" />
+                    </children>
+                </HBox>
+
+                <Button fx:id="loginButton" prefHeight="55" prefWidth="420" style="-fx-background-color: #1740C8; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" text="LogIn" />
+            </children>
+        </VBox>
+
+        <Pane layoutX="760" prefHeight="840" prefWidth="440" style="-fx-background-color: #1740C8;">
+
+            <Circle fill="transparent" layoutX="380" layoutY="60" opacity="0.5" radius="12" stroke="white" />
+            <Circle fill="transparent" layoutX="100" layoutY="70" opacity="0.4" radius="18" stroke="white" />
+            <Circle fill="transparent" layoutX="340" layoutY="770" opacity="0.3" radius="22" stroke="white" />
+
+            <StackPane layoutX="-170" layoutY="170" prefHeight="160" prefWidth="150" style="-fx-background-color: white; -fx-background-radius: 20;">
+                <children>
+                    <ImageView fitHeight="500" fitWidth="400" preserveRatio="false">
+                        <image>
+                            <Image url="@../images/Dgsn.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </StackPane>
+        </Pane>
+    </Pane>
+</StackPane>

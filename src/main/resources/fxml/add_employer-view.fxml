@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefWidth="1400.0" prefHeight="1000.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+
+        <VBox spacing="20.0"
+              AnchorPane.topAnchor="20.0"
+              AnchorPane.leftAnchor="40.0"
+              AnchorPane.rightAnchor="40.0"
+              AnchorPane.bottomAnchor="20.0">
+
+            <!-- HEADER -->
+            <VBox spacing="5">
+                <children>
+
+                    <Label text="Ajouter un nouvel employé">
+                        <font>
+                            <Font size="34"/>
+                        </font>
+                    </Label>
+
+                    <Label text="Remplissez les informations ci-dessous pour ajouter un nouvel employé au système"/>
+
+                </children>
+            </VBox>
+
+            <!-- MAIN CARD -->
+            <VBox spacing="25"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 14;
+                         -fx-border-radius: 14;
+                         -fx-border-color: #E5E7EB;
+                         -fx-padding: 30;">
+
+                <!-- INFORMATIONS DE BASE -->
+                <VBox spacing="15">
+                    <children>
+
+                        <Label text="Informations de base"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;"/>
+
+                        <Separator/>
+
+                        <GridPane hgap="20" vgap="18">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- ID Employé -->
+                            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="ID Employé *"/>
+                                    <TextField promptText="ex : EMP001"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Nom -->
+                            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Nom complet *"/>
+                                    <TextField promptText="Entrez le nom complet"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Date naissance -->
+                            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <children>
+                                    <Label text="Date de naissance *"/>
+                                    <DatePicker prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Sexe -->
+                            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <children>
+                                    <Label text="Sexe *"/>
+                                    <ComboBox promptText="Sélectionnez le sexe"
+                                              prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                        </GridPane>
+                    </children>
+                </VBox>
+
+                <!-- CONTACT -->
+                <VBox spacing="15">
+                    <children>
+
+                        <Label text="Informations de contact"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;"/>
+
+                        <Separator/>
+
+                        <GridPane hgap="20" vgap="18">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- Téléphone -->
+                            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Numéro de téléphone *"/>
+                                    <TextField promptText="+213 555 00 00 00"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Email -->
+                            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Adresse e-mail *"/>
+                                    <TextField promptText="employe@entreprise.com"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Adresse -->
+                            <VBox spacing="6"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1"
+                                  GridPane.columnSpan="2">
+
+                                <children>
+
+                                    <Label text="Adresse *"/>
+
+                                    <TextArea promptText="Entrez l’adresse complète"
+                                              prefHeight="100"
+                                              wrapText="true"/>
+
+                                </children>
+
+                            </VBox>
+
+                        </GridPane>
+
+                    </children>
+                </VBox>
+
+                <!-- EMPLOI -->
+                <VBox spacing="15">
+                    <children>
+
+                        <Label text="Informations professionnelles"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;"/>
+
+                        <Separator/>
+
+                        <GridPane hgap="20" vgap="18">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- Poste -->
+                            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Poste / Fonction *"/>
+                                    <TextField promptText="ex : Ingénieur logiciel"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Département -->
+                            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Département *"/>
+                                    <ComboBox promptText="Sélectionnez un département"
+                                              prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                        </GridPane>
+
+                    </children>
+                </VBox>
+
+                <!-- INFOS SUPPLÉMENTAIRES -->
+                <VBox spacing="15">
+                    <children>
+
+                        <Label text="Informations supplémentaires"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;"/>
+
+                        <Separator/>
+
+                        <GridPane hgap="20" vgap="18">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- Carte -->
+                            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Numéro de carte"/>
+                                    <TextField promptText="ex : CARD-12345"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                            <!-- Plaque -->
+                            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <children>
+                                    <Label text="Plaque d’immatriculation"/>
+                                    <TextField promptText="ex : ABC-1234"
+                                               prefHeight="45"/>
+                                </children>
+                            </VBox>
+
+                        </GridPane>
+
+                    </children>
+                </VBox>
+
+                <!-- BUTTONS -->
+                <HBox spacing="15"
+                      alignment="CENTER_RIGHT">
+
+                    <children>
+
+                        <Button text="Annuler"
+                                prefWidth="120"
+                                prefHeight="45"
+                                style="-fx-background-color: white;
+                                       -fx-border-color: #D1D5DB;
+                                       -fx-border-radius: 8;
+                                       -fx-background-radius: 8;"/>
+
+                        <Button text="Ajouter l’employé"
+                                prefWidth="180"
+                                prefHeight="45"
+                                style="-fx-background-color: #2563EB;
+                                       -fx-text-fill: white;
+                                       -fx-font-weight: bold;
+                                       -fx-background-radius: 8;"/>
+
+                    </children>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>
