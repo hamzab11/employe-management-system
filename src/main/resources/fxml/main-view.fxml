@@ -1,16 +1,408 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ahbpaf.p4.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import java.lang.String?>
+<BorderPane prefWidth="1400.0" prefHeight="1000.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: linear-gradient(to bottom right,#f8f7ff,#eef2ff);">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <!-- ================= SIDEBAR ================= -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="18"
+              style="-fx-background-color: white;
+                     -fx-border-color: #ececec;
+                     -fx-border-width: 0 1 0 0;">
+
+            <padding>
+                <Insets top="30" right="18" bottom="30" left="18"/>
+            </padding>
+
+            <!-- LOGO -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+
+                <StackPane prefWidth="48" prefHeight="48"
+                           style="-fx-background-color: linear-gradient(to bottom right,#8b5cf6,#7c3aed);
+                                  -fx-background-radius: 14;">
+
+                    <Label text="H"
+                           style="-fx-text-fill: white;
+                                  -fx-font-size: 24px;
+                                  -fx-font-weight: bold;"/>
+                </StackPane>
+
+                <VBox spacing="2">
+                    <Label text="HRMS"
+                           style="-fx-font-size: 28px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #7c3aed;"/>
+
+                    <Label text="Human Resources"
+                           style="-fx-text-fill: #999999;
+                                  -fx-font-size: 12px;"/>
+                </VBox>
+
+            </HBox>
+
+            <Separator />
+
+            <!-- MENU -->
+            <VBox spacing="10">
+
+                <Button text="📊  Statistics"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="👥  Profile List"
+                        prefWidth="200"
+                        prefHeight="48"
+                        style="-fx-background-color: linear-gradient(to right,#8b5cf6,#7c3aed);
+                               -fx-text-fill: white;
+                               -fx-font-size: 15px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 14;
+                               -fx-effect: dropshadow(gaussian, rgba(124,58,237,0.25),12,0,0,4);
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="🏢  Department"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="⏰  Timekeeping"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="💰  Salary"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="📢  Recruitment"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="📅  Leave"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+
+                <Button text="⚙  Settings"
+                        prefWidth="200"
+                        prefHeight="45"
+                        style="-fx-background-color: transparent;
+                               -fx-background-radius: 12;
+                               -fx-font-size: 15px;
+                               -fx-alignment: CENTER_LEFT;" />
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- USER CARD -->
+            <HBox spacing="12"
+                  alignment="CENTER_LEFT"
+                  style="-fx-background-color: #f8f7ff;
+                         -fx-background-radius: 16;
+                         -fx-padding: 14;">
+
+                <StackPane prefWidth="45" prefHeight="45"
+                           style="-fx-background-color: #7c3aed;
+                                  -fx-background-radius: 100;">
+
+                    <Label text="R"
+                           style="-fx-text-fill: white;
+                                  -fx-font-size: 18px;
+                                  -fx-font-weight: bold;" />
+                </StackPane>
+
+                <VBox spacing="2">
+                    <Label text="Robert Allen"
+                           style="-fx-font-weight: bold;" />
+
+                    <Label text="HR Manager"
+                           style="-fx-text-fill: #888888;" />
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </left>
+
+    <!-- ================= MAIN ================= -->
+    <center>
+
+        <VBox spacing="24">
+
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+
+            <!-- TOP BAR -->
+            <HBox alignment="CENTER_LEFT" spacing="20">
+
+                <VBox spacing="5">
+
+                    <Label text="All Employees"
+                           style="-fx-font-size: 30px;
+                                  -fx-font-weight: bold;
+                                  -fx-text-fill: #111827;" />
+
+                    <Label text="Manage all employee information in one place"
+                           style="-fx-font-size: 14px;
+                                  -fx-text-fill: #6b7280;" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- SEARCH -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="10"
+                      prefWidth="380"
+                      prefHeight="48"
+                      style="-fx-background-color: white;
+                             -fx-background-radius: 14;
+                             -fx-padding: 0 15 0 15;
+                             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05),10,0,0,2);">
+
+                    <Label text="🔍"
+                           style="-fx-font-size: 16px;" />
+
+                    <TextField promptText="Search employees..."
+                               HBox.hgrow="ALWAYS"
+                               style="-fx-background-color: transparent;
+                                      -fx-border-color: transparent;
+                                      -fx-font-size: 14px;" />
+                </HBox>
+
+                <!-- NOTIFICATION -->
+                <StackPane prefWidth="48" prefHeight="48"
+                           style="-fx-background-color: white;
+                                  -fx-background-radius: 14;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05),10,0,0,2);">
+
+                    <Label text="🔔"
+                           style="-fx-font-size: 18px;" />
+                </StackPane>
+
+            </HBox>
+
+            <!-- FILTER CARD -->
+            <VBox spacing="18"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 20;
+                         -fx-padding: 24;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06),18,0,0,4);">
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Employee Filters"
+                           style="-fx-font-size: 20px;
+                                  -fx-font-weight: bold;" />
+                </HBox>
+
+                <HBox spacing="18">
+
+                    <VBox spacing="8">
+                        <Label text="Full name"
+                               style="-fx-font-weight: bold;" />
+
+                        <TextField promptText="Enter employee name..."
+                                   prefWidth="250"
+                                   prefHeight="42"
+                                   style="-fx-background-radius: 12;
+                                          -fx-border-radius: 12;
+                                          -fx-border-color: #e5e7eb;" />
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Work Unit"
+                               style="-fx-font-weight: bold;" />
+
+                        <ComboBox prefWidth="220"
+                                  prefHeight="42"
+                                  style="-fx-background-radius: 12;
+                                         -fx-border-radius: 12;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="All Units"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Title"
+                               style="-fx-font-weight: bold;" />
+
+                        <ComboBox prefWidth="220"
+                                  prefHeight="42"
+                                  style="-fx-background-radius: 12;
+                                         -fx-border-radius: 12;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="All Titles"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Status"
+                               style="-fx-font-weight: bold;" />
+
+                        <ComboBox prefWidth="220"
+                                  prefHeight="42"
+                                  style="-fx-background-radius: 12;
+                                         -fx-border-radius: 12;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="All Status"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+
+                </HBox>
+
+                <HBox spacing="12">
+
+                    <Button text="Search"
+                            prefWidth="130"
+                            prefHeight="42"
+                            style="-fx-background-color: linear-gradient(to right,#8b5cf6,#7c3aed);
+                                   -fx-text-fill: white;
+                                   -fx-font-size: 14px;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 12;" />
+
+                    <Button text="Reset"
+                            prefWidth="120"
+                            prefHeight="42"
+                            style="-fx-background-color: #f3f4f6;
+                                   -fx-background-radius: 12;
+                                   -fx-font-weight: bold;" />
+
+                </HBox>
+
+            </VBox>
+
+            <!-- TABLE SECTION -->
+            <VBox spacing="18"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: white;
+                         -fx-background-radius: 22;
+                         -fx-padding: 22;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06),18,0,0,4);">
+
+                <!-- HEADER -->
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="4">
+                        <Label text="Employee Directory"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;" />
+
+                        <Label text="60 employees available"
+                               style="-fx-text-fill: #6b7280;" />
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button text="⬆ IMPORT"
+                            prefHeight="40"
+                            style="-fx-background-color: #7c3aed;
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 12;" />
+
+                    <Button text="📄 IMPORT LEAVE"
+                            prefHeight="40"
+                            style="-fx-background-color: #ff7a00;
+                                   -fx-text-fill: white;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 12;" />
+                </HBox>
+
+                <!-- TABLE -->
+                <TableView VBox.vgrow="ALWAYS"
+                           style="-fx-background-radius: 16;
+                                  -fx-border-radius: 16;
+                                  -fx-border-color: #eeeeee;">
+
+                    <columns>
+
+                        <TableColumn text="Full Name" prefWidth="240"/>
+                        <TableColumn text="Employee ID" prefWidth="150"/>
+                        <TableColumn text="Department" prefWidth="180"/>
+                        <TableColumn text="Designation" prefWidth="260"/>
+                        <TableColumn text="Type" prefWidth="150"/>
+                        <TableColumn text="Status" prefWidth="120"/>
+                        <TableColumn text="Action" prefWidth="180"/>
+
+                    </columns>
+
+                </TableView>
+
+                <!-- FOOTER -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+
+                    <Label text="Showing 1-10 of 60 records"
+                           style="-fx-text-fill: #6b7280;
+                                  -fx-font-size: 13px;" />
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button text="Previous"
+                            style="-fx-background-radius: 10;" />
+
+                    <Button text="1"
+                            style="-fx-background-color: #7c3aed;
+                                   -fx-text-fill: white;
+                                   -fx-background-radius: 10;" />
+
+                    <Button text="2"
+                            style="-fx-background-radius: 10;" />
+
+                    <Button text="3"
+                            style="-fx-background-radius: 10;" />
+
+                    <Button text="4"
+                            style="-fx-background-radius: 10;" />
+
+                    <Button text="Next"
+                            style="-fx-background-radius: 10;" />
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

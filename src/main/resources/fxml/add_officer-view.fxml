@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane prefWidth="1400.0"
+            prefHeight="1000.0"
+            fx:controller="com.ahbpaf.p4.AddOfficerConttroler"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f4f6f9;">
+
+    <!-- MAIN CARD -->
+
+    <VBox
+          prefWidth="1400"
+          prefHeight="1000"
+          spacing="25"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 18;
+                 -fx-border-color: #e4e7ec;
+                 -fx-border-radius: 18;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08),20,0,0,4);">
+
+        <padding>
+            <Insets top="30" right="35" bottom="30" left="35"/>
+        </padding>
+
+        <!-- HEADER -->
+
+        <VBox spacing="6">
+
+            <Label text="Add New Police Officer"
+                   style="-fx-font-size: 34px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #111827;" />
+
+            <Label text="Fill in the officer information below"
+                   style="-fx-font-size: 15px;
+                          -fx-text-fill: #6b7280;" />
+
+        </VBox>
+
+        <!-- ================= BASIC INFORMATION ================= -->
+
+        <VBox spacing="18">
+
+            <Label text="👮 Basic Information"
+                   style="-fx-font-size: 22px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #1d4ed8;" />
+
+            <Separator />
+
+            <GridPane hgap="20" vgap="18">
+
+                <!-- COLUMN CONSTRAINTS -->
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <!-- MATRICULE -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Officer Matricule *"/>
+
+                    <TextField
+                               fx:id="matricule"
+                               promptText="e.g. POL-1025"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+                <!-- FIRST NAME -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="1">
+
+                    <Label text="First Name *"/>
+
+                    <TextField
+                               fx:id="firstname"
+                               promptText="Enter first name"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+                <!-- LAST NAME -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="1"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Last Name *"/>
+
+                    <TextField fx:id="lastname"
+                               promptText="Enter last name"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+                <!-- GRADE -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="1"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Police Grade *"/>
+
+                    <ComboBox onAction="#selectgrade"
+                              fx:id="grade"
+                              prefHeight="42"
+                              style="-fx-background-radius: 10;
+                                     -fx-border-radius: 10;">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Commissaire de police"/>
+                                <String fx:value="Officier principal de police"/>
+                                <String fx:value="Officier de police "/>
+                                <String fx:value="Inspecteur principal de police"/>
+                                <String fx:value="Inspecteur de police"/>
+                                <String fx:value="Brigadier-chef"/>
+                                <String fx:value="Brigadier de police BP"/>
+                                <String fx:value="Agent de police"/>
+
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                </VBox>
+
+                <!-- RETURN DATE -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="2"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Holiday Return Date *"/>
+
+                    <DatePicker onAction="#selectedate"
+                                fx:id="datePicker"
+                                prefHeight="42"
+                                style="-fx-background-radius: 10;
+                                       -fx-border-radius: 10;" />
+
+                </VBox>
+
+                <!-- BADGE NUMBER -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="2"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Badge Number *"/>
+
+                    <TextField fx:id="badgenumber"
+                               promptText="e.g. BG-5531"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+            </GridPane>
+
+        </VBox>
+
+        <!-- ================= WEAPON INFORMATION ================= -->
+
+        <VBox spacing="18">
+
+            <Label text="🔫 Weapon Information"
+                   style="-fx-font-size: 22px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #dc2626;" />
+
+            <Separator />
+
+            <GridPane hgap="20" vgap="18">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <!-- GUN MATRICULE -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Gun Matricule *"/>
+
+                    <TextField fx:id="gunmatricule"
+                               promptText="e.g. GUN-8891"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+                <!-- BULLETS -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Number of Bullets *"/>
+
+                    <TextField promptText="Enter bullet count"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+                <!-- MAGAZINES -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="1"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Number of Magazines *"/>
+
+                    <TextField fx:id="magazine"
+                               promptText="Enter magazine count"
+                               prefHeight="42"
+                               style="-fx-background-radius: 10;
+                                      -fx-border-radius: 10;
+                                      -fx-border-color: #cbd5e1;" />
+
+                </VBox>
+
+            </GridPane>
+
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- BUTTONS -->
+
+        <HBox alignment="CENTER_RIGHT"
+              spacing="15">
+
+            <Button onAction="#cancel"
+                    text="Cancel"
+                    prefWidth="120"
+                    prefHeight="42"
+                    style="-fx-background-color: #f3f4f6;
+                           -fx-background-radius: 10;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;" />
+
+            <Button onAction="#saveofficer" text="Add Officer"
+                    prefWidth="160"
+                    prefHeight="42"
+                    style="-fx-background-color: #2563eb;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 10;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;" />
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>
