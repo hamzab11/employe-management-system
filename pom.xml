@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>ArtikelFinder</artifactId>
+    <groupId>com.ahbpaf</groupId>
+    <artifactId>employee-management-system</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Artikel finder</name>
+    <name>Employee Management System</name>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -86,7 +87,7 @@
 
                 <configuration>
                     <mainClass>
-                        com.example.artikelfinder.Launcher
+                        com.ahbpaf.p4.Launcher
                     </mainClass>
                 </configuration>
 

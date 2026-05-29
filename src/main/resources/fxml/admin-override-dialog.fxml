@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.AdminOverrideDialogController"
+            prefWidth="420"
+            prefHeight="320"
+            style="-fx-background-color: white;">
+
+    <!-- Right Blue Accent -->
+    <Pane fx:id="rightBluePane"
+          layoutX="300"
+          prefWidth="120"
+          prefHeight="320"
+          style="-fx-background-color: #2347D5;"/>
+
+    <!-- Main Card -->
+    <VBox fx:id="mainCard"
+          spacing="18"
+          alignment="CENTER"
+          layoutX="35"
+          layoutY="35"
+          prefWidth="320"
+          prefHeight="250"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 20;
+                 -fx-padding: 28;
+                 -fx-effect: dropshadow(gaussian,
+                 rgba(0,0,0,0.18),
+                 18,0,0,4);">
+
+        <Label fx:id="authorityGateLabel"
+               text="Authority Gate"
+               style="-fx-text-fill: #2347D5;
+                      -fx-font-size: 16px;
+                      -fx-font-weight: bold;"/>
+
+        <Label fx:id="titleLabel"
+               text="Admin Authorization"
+               style="-fx-text-fill: #111827;
+                      -fx-font-size: 28px;
+                      -fx-font-weight: 300;"/>
+
+        <Label fx:id="subtitleLabel"
+               text="Administrator approval required"
+               style="-fx-text-fill: #9CA3AF;
+                      -fx-font-size: 13px;"/>
+
+        <!-- Username -->
+        <TextField fx:id="adminUsernameField"
+                   promptText="Admin username"
+                   maxWidth="260"
+                   prefHeight="42"
+                   style="-fx-background-color: white;
+                          -fx-border-color: #D1D5DB;
+                          -fx-border-radius: 8;
+                          -fx-background-radius: 8;
+                          -fx-font-size: 14px;"/>
+
+        <!-- Password -->
+        <PasswordField fx:id="adminPasswordField"
+                       promptText="Admin password"
+                       maxWidth="260"
+                       prefHeight="42"
+                       style="-fx-background-color: white;
+                              -fx-border-color: #D1D5DB;
+                              -fx-border-radius: 8;
+                              -fx-background-radius: 8;
+                              -fx-font-size: 14px;"/>
+
+        <!-- Message -->
+        <Label fx:id="messageLabel"
+               wrapText="true"
+               maxWidth="260"
+               style="-fx-text-fill: #D97706;
+                      -fx-font-size: 12px;"/>
+
+        <!-- Button -->
+        <Button fx:id="authorizeButton"
+                text="Authorize"
+                onAction="#handleAuthorize"
+                prefWidth="180"
+                prefHeight="42"
+                style="-fx-background-color: #2347D5;
+                       -fx-text-fill: white;
+                       -fx-font-size: 14px;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;"/>
+
+    </VBox>
+
+</AnchorPane>

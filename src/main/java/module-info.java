@@ -8,4 +8,8 @@ module com.ahbpaf.p4 {
     exports com.ahbpaf.p4;
     exports database;
     opens database to javafx.fxml;
+    exports controllers;
+    opens controllers to javafx.fxml;
+    exports utils;
+    opens utils to javafx.fxml;
 }

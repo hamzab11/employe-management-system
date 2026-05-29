@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- MAIN ROOT: Weapons page container -->
+<BorderPane prefHeight="1000.0" prefWidth="1400.0"
+            style="-fx-background-color: #0F172A;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.WeaponsController">
+
+    <!-- CENTER CONTENT: Full page content -->
+    <center>
+
+        <!-- PAGE LAYOUT: Main vertical container -->
+        <VBox spacing="24">
+
+            <!-- PAGE PADDING -->
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+
+            <!-- ================= HEADER SECTION ================= -->
+            <!-- HEADER CONTAINER: title + search bar -->
+            <HBox alignment="CENTER_LEFT" spacing="18">
+
+                <!-- PAGE TITLE AREA -->
+                <VBox spacing="5">
+                    <!-- MAIN PAGE TITLE -->
+                    <Label text="Weapons Management"
+                           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+                    <!-- PAGE SUBTITLE -->
+                    <Label text="Manage guns assigned to police employees"
+                           style="-fx-font-size: 14px; -fx-text-fill: #94A3B8;"/>
+                </VBox>
+
+                <!-- SPACER: pushes search bar to the right -->
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- SEARCH BAR: add hover/focus animation here -->
+                <HBox alignment="CENTER_LEFT" prefHeight="46" prefWidth="380" spacing="10"
+                      style="-fx-background-color: #1E293B; -fx-background-radius: 14; -fx-padding: 0 14 0 14;">
+
+                    <!-- SEARCH ICON -->
+                    <Label text="🔍" style="-fx-font-size: 15px;"/>
+
+                    <!-- SEARCH INPUT FIELD -->
+                    <TextField fx:id="searchWeapons"
+                               promptText="Search guns..."
+                               HBox.hgrow="ALWAYS"
+                               style="-fx-background-color: transparent;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #94A3B8;
+                                      -fx-border-color: transparent;"/>
+                </HBox>
+            </HBox>
+
+            <!-- ================= STATISTICS CARDS ================= -->
+            <!-- STATS CONTAINER: all cards row -->
+            <HBox spacing="18">
+
+                <!-- CARD 1: Total Guns card -->
+                <VBox fx:id="totalGunsCard" prefHeight="130" prefWidth="260" spacing="12"
+                      style="-fx-background-color: linear-gradient(to bottom right,#DC2626,#B91C1C);
+                             -fx-background-radius: 22; -fx-padding: 22;">
+
+                    <!-- CARD TITLE -->
+                    <Label text="🔫 Total Guns" style="-fx-text-fill: #FECACA; -fx-font-size: 15px;"/>
+
+                    <!-- CARD VALUE -->
+                    <Label fx:id="totalGunsLabel" text="196"
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
+
+                    <!-- CARD DESCRIPTION -->
+                    <Label text="All registered weapons" style="-fx-text-fill: #FCA5A5;"/>
+                </VBox>
+
+                <!-- CARD 2: Assigned Guns card -->
+                <VBox fx:id="assignedGunsCard" prefHeight="130" prefWidth="260" spacing="12"
+                      style="-fx-background-color: linear-gradient(to bottom right,#2563EB,#1D4ED8);
+                             -fx-background-radius: 22; -fx-padding: 22;">
+
+                    <Label text="👮 Assigned" style="-fx-text-fill: #DBEAFE; -fx-font-size: 15px;"/>
+                    <Label fx:id="assignedGunsLabel" text="174"
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
+                    <Label text="Currently with officers" style="-fx-text-fill: #BFDBFE;"/>
+                </VBox>
+
+                <!-- CARD 3: Available Guns card -->
+                <VBox fx:id="availableGunsCard" prefHeight="130" prefWidth="260" spacing="12"
+                      style="-fx-background-color: linear-gradient(to bottom right,#059669,#047857);
+                             -fx-background-radius: 22; -fx-padding: 22;">
+
+                    <Label text="✅ Available" style="-fx-text-fill: #A7F3D0; -fx-font-size: 15px;"/>
+                    <Label fx:id="availableGunsLabel" text="18"
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
+                    <Label text="Ready to assign" style="-fx-text-fill: #6EE7B7;"/>
+                </VBox>
+
+                <!-- CARD 4: Maintenance Guns card -->
+                <VBox fx:id="maintenanceGunsCard" prefHeight="130" prefWidth="260" spacing="12"
+                      style="-fx-background-color: linear-gradient(to bottom right,#F59E0B,#D97706);
+                             -fx-background-radius: 22; -fx-padding: 22;">
+
+                    <Label text="🛠 Maintenance" style="-fx-text-fill: #FDE68A; -fx-font-size: 15px;"/>
+                    <Label fx:id="maintenanceGunsLabel" text="4"
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
+                    <Label text="Need inspection" style="-fx-text-fill: #FCD34D;"/>
+                </VBox>
+            </HBox>
+
+            <!-- ================= TABLE SECTION ================= -->
+            <!-- TABLE CARD: big container around table -->
+            <VBox fx:id="gunsTableSection" spacing="18" VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: #111827;
+                         -fx-background-radius: 24;
+                         -fx-padding: 22;
+                         -fx-border-color: #1E293B;
+                         -fx-border-radius: 24;">
+
+                <!-- TABLE HEADER: title + add button -->
+                <HBox alignment="CENTER_LEFT">
+
+                    <!-- TABLE TITLE AREA -->
+                    <VBox spacing="4">
+                        <Label text="Guns List"
+                               style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+                        <Label text="All guns and their assigned police employees"
+                               style="-fx-text-fill: #94A3B8;"/>
+                    </VBox>
+
+                    <!-- SPACER -->
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <!-- ADD GUN BUTTON: add hover glow animation here -->
+                    <Button fx:id="addGunButton" prefHeight="42"
+                            text="+ Add Gun"
+                            style="-fx-background-color: #DC2626;
+                                   -fx-text-fill: white;
+                                   -fx-font-size: 14px;
+                                   -fx-font-weight: bold;
+                                   -fx-background-radius: 12;"/>
+                </HBox>
+
+                <!-- GUNS TABLE: add row hover style in CSS later -->
+                <TableView fx:id="gunsTable" VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: #0F172A;
+                                  -fx-background-radius: 18;
+                                  -fx-border-color: #1E293B;
+                                  -fx-border-radius: 18;">
+
+                    <!-- TABLE COLUMNS -->
+                    <columns>
+                        <!-- Manufacturer: Beretta, Glock, Taurus -->
+                        <TableColumn fx:id="colManufacturer" prefWidth="170" text="Manufacturer"/>
+
+                        <!-- Model: M9, 92FS, G3 -->
+                        <TableColumn fx:id="colModel" prefWidth="150" text="Model"/>
+
+                        <!-- Unique weapon serial number -->
+                        <TableColumn fx:id="colSerialNumber" prefWidth="180" text="Serial Number"/>
+
+                        <!-- Type: Individual Gun, Machine Gun, Shotgun, Rifle -->
+                        <TableColumn fx:id="colType" prefWidth="170" text="Type"/>
+
+                        <!-- Caliber: 9mm, 5.56mm, etc -->
+                        <TableColumn fx:id="colCaliber" prefWidth="120" text="Caliber"/>
+
+                        <!-- Bullets count -->
+                        <TableColumn fx:id="colBullets" prefWidth="110" text="Bullets"/>
+
+                        <!-- Assigned officer matricule -->
+                        <TableColumn fx:id="colOfficerMatricule" prefWidth="160" text="Officer Matricule"/>
+
+                        <!-- Assigned officer full name -->
+                        <TableColumn fx:id="colOfficerName" prefWidth="190" text="Officer Name"/>
+
+                        <!-- Status: Assigned, Available, Maintenance -->
+                        <TableColumn fx:id="colStatus" prefWidth="130" text="Status"/>
+                    </columns>
+                </TableView>
+
+                <!-- FOOTER / PAGINATION SECTION -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+
+                    <!-- TABLE FOOTER LABEL -->
+                    <Label fx:id="gunsFooterLabel"
+                           text="Showing 1-10 of 196 guns"
+                           style="-fx-text-fill: #94A3B8;"/>
+
+                    <!-- SPACER -->
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <!-- PAGINATION BUTTONS: add hover animation here -->
+                    <Button fx:id="previousPageButton" text="Previous"
+                            style="-fx-background-color: #1E293B; -fx-text-fill: white; -fx-background-radius: 10;"/>
+
+                    <Button fx:id="pageOneButton" text="1"
+                            style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 10;"/>
+
+                    <Button fx:id="pageTwoButton" text="2"
+                            style="-fx-background-color: #1E293B; -fx-text-fill: white; -fx-background-radius: 10;"/>
+
+                    <Button fx:id="pageThreeButton" text="3"
+                            style="-fx-background-color: #1E293B; -fx-text-fill: white; -fx-background-radius: 10;"/>
+
+                    <Button fx:id="nextPageButton" text="Next"
+                            style="-fx-background-color: #1E293B; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

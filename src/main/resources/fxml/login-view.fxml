@@ -6,74 +6,191 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahbpaf.p4.LoginController">
+<!-- ROOT BACKGROUND -->
+<!-- Suggested animation: AnimationManager.fade(rootLoginPage, 0.5, 0, 1); -->
+<StackPane fx:id="rootLoginPage"
+           style="-fx-background-color: #EDEDED;"
+           xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.LoginController">
 
-    <Pane maxHeight="840" maxWidth="1200" prefHeight="840" prefWidth="1200" style="-fx-background-color: white; -fx-background-radius: 10;">
+    <!-- MAIN LOGIN CARD -->
+    <!-- Suggested animation: AnimationManager.pageEntrance(loginCard); -->
+    <Pane fx:id="loginCard"
+          maxHeight="840" maxWidth="1200"
+          prefHeight="840" prefWidth="1200"
+          style="-fx-background-color: white; -fx-background-radius: 10;">
 
-        <ImageView fitHeight="100" fitWidth="81" layoutX="280" layoutY="20" preserveRatio="false">
+        <!-- APP LOGO -->
+        <!-- Suggested animation: AnimationManager.pageEntrance(appLogo); or AnimationManager.floating(appLogo); -->
+        <ImageView fx:id="appLogo"
+                   fitHeight="100" fitWidth="81"
+                   layoutX="280" layoutY="20"
+                   preserveRatio="false">
             <image>
-                <Image url="@../images/appIcon.png" />
+                <Image url="@../images/appIcon.png"/>
             </image>
         </ImageView>
 
+        <!-- APP TITLE -->
+        <!-- Suggested animation: AnimationManager.slideFromLeft(appTitle); -->
+        <Label fx:id="appTitle"
+               layoutX="170" layoutY="120"
+               text="Employee Management System"
+               textAlignment="CENTER"
+               style="-fx-text-fill: #1740C8; -fx-font-size: 22; -fx-font-weight: bold;"/>
 
-        <Label layoutX="170" layoutY="120" style="-fx-text-fill: #1740C8; -fx-font-size: 22; -fx-font-weight: bold;" text="Employee Management System" textAlignment="CENTER" />
+        <!-- LOGIN FORM CONTAINER -->
+        <!-- Suggested animation: AnimationManager.slideFromLeft(loginForm); -->
+        <VBox fx:id="loginForm"
+              layoutX="120" layoutY="160"
+              prefWidth="420"
+              spacing="25">
 
-        <VBox layoutX="120" layoutY="160" prefWidth="420" spacing="25">
-            <children>
-                <VBox alignment="CENTER" spacing="10">
-                    <children>
-                        <Label text="Login ">
-                            <font>
-                                <Font size="38" />
-                            </font>
-                        </Label>
-                        <Label style="-fx-text-fill: #9A9A9A; -fx-font-size: 15;" text="In Charge Agent " wrapText="true" />
-                    </children>
-                </VBox>
+            <!-- LOGIN HEADER -->
+            <!-- Suggested animation: AnimationManager.pageEntrance(loginHeader); -->
+            <VBox fx:id="loginHeader" alignment="CENTER" spacing="10">
+                <Label fx:id="loginTitle" text="Login">
+                    <font>
+                        <Font size="38"/>
+                    </font>
+                </Label>
 
-                <VBox spacing="10">
-                    <children>
-                        <Label style="-fx-font-size: 18;" text="User name" />
-                        <TextField fx:id="usernameField" prefHeight="55" promptText="matricule" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #D9D9D9; -fx-font-size: 15;" />
-                    </children>
-                </VBox>
+                <Label fx:id="loginSubtitle"
+                       text="In Charge Agent"
+                       wrapText="true"
+                       style="-fx-text-fill: #9A9A9A; -fx-font-size: 15;"/>
+            </VBox>
 
-                <VBox spacing="10">
-                    <children>
-                        <Label style="-fx-font-size: 18;" text="Enter your Password" />
-                        <PasswordField fx:id="passwordField" prefHeight="55" promptText="password" style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #D9D9D9; -fx-font-size: 15;" />
-                    </children>
-                </VBox>
+            <!-- USERNAME FIELD GROUP -->
+            <!-- Suggested animation: AnimationManager.searchFocus(usernameBox); -->
+            <VBox fx:id="usernameBox" spacing="10">
+                <Label text="User name" style="-fx-font-size: 18;"/>
 
-                <HBox alignment="CENTER_LEFT" spacing="120">
-                    <children>
-                        <CheckBox fx:id="checkBox" onAction="#rememberUser" style="-fx-text-fill: #999999;" text="Remember me?" />
-                        <Hyperlink fx:id="hyperLink" onAction="#restPassword" style="-fx-text-fill: #999999;" text="Forgot Password ?" />
-                    </children>
-                </HBox>
+                <!-- Suggested animation: AnimationManager.searchFocus(usernameField); -->
+                <TextField fx:id="usernameField"
+                           prefHeight="55"
+                           promptText="matricule"
+                           style="-fx-background-radius: 6;
+                                  -fx-border-radius: 6;
+                                  -fx-border-color: #D9D9D9;
+                                  -fx-font-size: 15;"/>
+            </VBox>
 
-                <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="55" prefWidth="420" style="-fx-background-color: #1740C8; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" text="LogIn" />
-                <Label fx:id="loginScreen" textAlignment="CENTER" alignment="CENTER" prefHeight="55" prefWidth="420" style="-fx-text-fill: #EF4444;
-       -fx-font-size: 13px;
-       -fx-font-weight: bold;"  />
-            </children>
+            <!-- PASSWORD FIELD GROUP -->
+            <!-- Suggested animation: AnimationManager.searchFocus(passwordBox); -->
+            <VBox fx:id="passwordBox" spacing="10">
+                <Label text="Enter your Password" style="-fx-font-size: 18;"/>
+
+                <!-- Suggested animation: AnimationManager.searchFocus(passwordField); -->
+                <PasswordField fx:id="passwordField"
+                               prefHeight="55"
+                               promptText="password"
+                               style="-fx-background-radius: 6;
+                                      -fx-border-radius: 6;
+                                      -fx-border-color: #D9D9D9;
+                                      -fx-font-size: 15;"/>
+            </VBox>
+
+            <!-- LOGIN OPTIONS ROW -->
+            <!-- Suggested animation: AnimationManager.pageEntrance(loginOptions); -->
+            <HBox fx:id="loginOptions" alignment="CENTER_LEFT" spacing="120">
+
+                <!-- REMEMBER ME CHECKBOX -->
+                <!-- Suggested animation: AnimationManager.nodeHover(checkBox); -->
+                <CheckBox fx:id="checkBox"
+                          onAction="#rememberUser"
+                          text="Remember me?"
+                          style="-fx-text-fill: #999999;"/>
+
+                <!-- FORGOT PASSWORD LINK -->
+                <!-- Suggested animation: AnimationManager.blueButtonHover(hyperLink); -->
+                <Hyperlink fx:id="hyperLink"
+                           onAction="#restPassword"
+                           text="Forgot Password ?"
+                           style="-fx-text-fill: #999999;"/>
+            </HBox>
+
+            <!-- LOGIN BUTTON -->
+            <!-- Suggested animation: AnimationManager.blueButtonHover(loginButton); -->
+            <Button fx:id="loginButton"
+                    onAction="#handleLogin"
+                    prefHeight="55"
+                    prefWidth="420"
+                    text="LogIn"
+                    style="-fx-background-color: #1740C8;
+                           -fx-background-radius: 6;
+                           -fx-text-fill: white;
+                           -fx-font-size: 18;
+                           -fx-font-weight: bold;"/>
+
+            <!-- ERROR MESSAGE LABEL -->
+            <!-- Suggested animation on login fail: AnimationManager.shake(loginScreen, 50, -8, 8, 6, true); -->
+            <Label fx:id="loginScreen"
+                   alignment="CENTER"
+                   textAlignment="CENTER"
+                   prefHeight="55"
+                   prefWidth="420"
+                   style="-fx-text-fill: #EF4444;
+                          -fx-font-size: 13px;
+                          -fx-font-weight: bold;"/>
         </VBox>
 
-        <Pane layoutX="760" prefHeight="840" prefWidth="440" style="-fx-background-color: #1740C8;">
+        <!-- RIGHT BLUE PANEL -->
+        <!-- Suggested animation: AnimationManager.pageEntrance(rightPanel); -->
+        <Pane fx:id="rightPanel"
+              layoutX="760"
+              prefHeight="840"
+              prefWidth="440"
+              style="-fx-background-color: #1740C8;">
 
-            <Circle fill="transparent" layoutX="380" layoutY="60" opacity="0.5" radius="12" stroke="white" />
-            <Circle fill="transparent" layoutX="100" layoutY="70" opacity="0.4" radius="18" stroke="white" />
-            <Circle fill="transparent" layoutX="340" layoutY="770" opacity="0.3" radius="22" stroke="white" />
+            <!-- DECORATION CIRCLE 1 -->
+            <!-- Suggested animation: AnimationManager.floating(circleOne); -->
+            <Circle fx:id="circleOne"
+                    fill="transparent"
+                    layoutX="380" layoutY="60"
+                    opacity="0.5"
+                    radius="12"
+                    stroke="white"/>
 
-            <StackPane layoutX="-170" layoutY="170" prefHeight="160" prefWidth="150" style="-fx-background-color: white; -fx-background-radius: 20;">
-                <children>
-                    <ImageView fitHeight="500" fitWidth="400" preserveRatio="false">
-                        <image>
-                            <Image url="@../images/Dgsn.png" />
-                        </image>
-                    </ImageView>
-                </children>
+            <!-- DECORATION CIRCLE 2 -->
+            <!-- Suggested animation: AnimationManager.floating(circleTwo); -->
+            <Circle fx:id="circleTwo"
+                    fill="transparent"
+                    layoutX="100" layoutY="70"
+                    opacity="0.4"
+                    radius="18"
+                    stroke="white"/>
+
+         <!-- DECORATION CIRCLE 3 -->
+            <!-- Suggested animation: AnimationManager.floating(circleThree); -->
+            <Circle fx:id="circleThree"
+                    fill="transparent"
+                    layoutX="340" layoutY="770"
+                    opacity="0.3"
+                    radius="22"
+                    stroke="white"/>
+
+            <!-- DGSN IMAGE CARD -->
+            <!-- Suggested animation: AnimationManager.cardHover(dgsnImageCard); -->
+            <StackPane fx:id="dgsnImageCard"
+                       layoutX="-170"
+                       layoutY="170"
+                       prefHeight="160"
+                       prefWidth="150"
+                       style="-fx-background-color: white;
+                              -fx-background-radius: 20;">
+
+                <!-- DGSN IMAGE -->
+                <!-- Suggested animation: AnimationManager.floating(dgsnImage); -->
+                <ImageView fx:id="dgsnImage"
+                           fitHeight="500"
+                           fitWidth="400"
+                           preserveRatio="false">
+                    <image>
+                        <Image url="@../images/Dgsn.png"/>
+                    </image>
+                </ImageView>
             </StackPane>
         </Pane>
     </Pane>

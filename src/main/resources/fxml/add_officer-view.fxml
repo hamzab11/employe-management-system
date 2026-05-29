@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections?>
 <AnchorPane prefWidth="1400.0"
             prefHeight="1000.0"
-            fx:controller="com.ahbpaf.p4.AddOfficerConttroler"
+            fx:controller="controllers.AddOfficerConttroler"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             style="-fx-background-color: #f4f6f9;">

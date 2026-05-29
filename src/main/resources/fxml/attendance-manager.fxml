@@ -1,463 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<BorderPane xmlns="http://javafx.com/javafx/17"
+<BorderPane prefHeight="1000.0" prefWidth="1400.0"
+            style="-fx-background-color: #0F172A;"
+            xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
-            prefWidth="1400.0"
-            prefHeight="1000.0"
-            style="-fx-background-color: #0F172A;">
-
-    <!-- ================= LEFT SIDEBAR ================= -->
+            fx:controller="controllers.AttendanceManagerController">
 
     <left>
-
-        <VBox prefWidth="250"
-              spacing="18"
+        <VBox prefWidth="250" spacing="18"
               style="-fx-background-color: linear-gradient(to bottom,#111827,#1E293B);
                      -fx-border-color: #263244;
                      -fx-border-width: 0 1 0 0;">
-
             <padding>
                 <Insets top="28" right="18" bottom="28" left="18"/>
             </padding>
 
-            <!-- LOGO -->
-
-            <HBox spacing="14"
-                  alignment="CENTER_LEFT">
-
-                <StackPane prefWidth="55"
-                           prefHeight="60"
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <StackPane prefHeight="60" prefWidth="55"
                            style="-fx-background-color: linear-gradient(to bottom right,#2563EB,#1D4ED8);
                                   -fx-background-radius: 18;">
-
-                    <ImageView fitWidth="55"
-                               fitHeight="70"
-                               preserveRatio="true">
-
+                    <ImageView fitHeight="70" fitWidth="55" preserveRatio="true">
                         <image>
                             <Image url="@../images/appIcon.png"/>
                         </image>
-
                     </ImageView>
-
-
                 </StackPane>
 
                 <VBox spacing="3">
-
                     <Label text="DGSN"
                            style="-fx-text-fill: white;
                                   -fx-font-size: 24px;
-                                  -fx-font-weight: bold;" />
-
-                    <Label text="employe Management System"
+                                  -fx-font-weight: bold;"/>
+                    <Label text="Employee Management System"
                            style="-fx-text-fill: #94A3B8;
-                                  -fx-font-size: 12px;" />
-
+                                  -fx-font-size: 12px;"/>
                 </VBox>
-
             </HBox>
 
-            <Separator style="-fx-background-color: #334155;" />
-
-            <!-- MENU -->
+            <Separator style="-fx-background-color: #334155;"/>
 
             <VBox spacing="10">
-
-                <Button text="📊 Dashboard"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button prefHeight="48" prefWidth="210"
+                        text="📊 Dashboard"
                         style="-fx-background-color: transparent;
                                -fx-text-fill: #CBD5E1;
                                -fx-font-size: 15px;
                                -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+                               -fx-alignment: CENTER_LEFT;"/>
 
-                <Button text="👮 Officers"
-                        prefWidth="210"
-                        prefHeight="50"
+                <Button fx:id="btnOfficers" prefHeight="50" prefWidth="210"
+                        text="👮 Officers"
                         style="-fx-background-color: linear-gradient(to right,#2563EB,#1D4ED8);
                                -fx-text-fill: white;
                                -fx-font-size: 15px;
                                -fx-font-weight: bold;
                                -fx-background-radius: 14;
                                -fx-alignment: CENTER_LEFT;
-                               -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4),12,0,0,3);" />
+                               -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.4),12,0,0,3);"/>
 
-                <Button text="🔫 Weapons"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button fx:id="btnWeapons" onAction="#handleWeaponsView" prefHeight="48" prefWidth="210"
+                        text="🔫 Weapons"
                         style="-fx-background-color: transparent;
                                -fx-text-fill: #CBD5E1;
                                -fx-font-size: 15px;
                                -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+                               -fx-alignment: CENTER_LEFT;"/>
 
-                <Button text="📅 Holidays"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button fx:id="btnHolidays" prefHeight="48" prefWidth="210"
+                        text="📅 Holidays"
                         style="-fx-background-color: transparent;
                                -fx-text-fill: #CBD5E1;
                                -fx-font-size: 15px;
                                -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+                               -fx-alignment: CENTER_LEFT;"/>
 
-                <Button text="🚔 Patrols"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button fx:id="btnPatrols" prefHeight="48" prefWidth="210"
+                        text="🚔 Patrols"
                         style="-fx-background-color: transparent;
                                -fx-text-fill: #CBD5E1;
                                -fx-font-size: 15px;
                                -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+                               -fx-alignment: CENTER_LEFT;"/>
 
-                <Button text="📁 Reports"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button fx:id="btnReports" prefHeight="48" prefWidth="210"
+                        text="📁 Reports"
                         style="-fx-background-color: transparent;
                                -fx-text-fill: #CBD5E1;
                                -fx-font-size: 15px;
                                -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+                               -fx-alignment: CENTER_LEFT;"/>
 
-                <Button text="⚙ Settings"
-                        prefWidth="210"
-                        prefHeight="48"
+                <Button fx:id="btnSettings" prefHeight="48" prefWidth="210"
+                        text="⚙ Settings"
                         style="-fx-background-color: transparent;
-                               -fx-text-fill: #CBD5E1;
-                               -fx-font-size: 15px;
-                               -fx-background-radius: 14;
-                               -fx-alignment: CENTER_LEFT;" />
+               -fx-text-fill: #CBD5E1;
+               -fx-font-size: 15px;
+               -fx-background-radius: 14;
+               -fx-alignment: CENTER_LEFT;"/>
+
 
             </VBox>
 
             <Region VBox.vgrow="ALWAYS"/>
 
-            <!-- USER CARD -->
-
-            <HBox spacing="12"
-                  alignment="CENTER_LEFT"
+            <HBox alignment="CENTER_LEFT" spacing="12"
                   style="-fx-background-color: #1E293B;
                          -fx-background-radius: 16;
                          -fx-padding: 14;">
-
-                <StackPane prefWidth="44"
-                           prefHeight="44"
+                <StackPane prefHeight="44" prefWidth="44"
                            style="-fx-background-color: #2563EB;
                                   -fx-background-radius: 100;">
-
                     <Label text="A"
                            style="-fx-text-fill: white;
                                   -fx-font-size: 18px;
-                                  -fx-font-weight: bold;" />
-
+                                  -fx-font-weight: bold;"/>
                 </StackPane>
 
                 <VBox spacing="2">
-
                     <Label text="Admin Officer"
                            style="-fx-text-fill: white;
-                                  -fx-font-weight: bold;" />
-
+                                  -fx-font-weight: bold;"/>
                     <Label text="Central Station"
                            style="-fx-text-fill: #94A3B8;
-                                  -fx-font-size: 12px;" />
-
+                                  -fx-font-size: 12px;"/>
                 </VBox>
-
             </HBox>
-
         </VBox>
-
     </left>
 
-    <!-- ================= MAIN CONTENT ================= -->
-
     <center>
-
         <VBox spacing="24">
-
             <padding>
                 <Insets top="25" right="25" bottom="25" left="25"/>
             </padding>
 
-            <!-- TOP BAR -->
-
-            <HBox alignment="CENTER_LEFT"
-                  spacing="18">
-
+            <HBox alignment="CENTER_LEFT" spacing="18">
                 <VBox spacing="5">
-
                     <Label text="Police Officers Dashboard"
                            style="-fx-font-size: 30px;
                                   -fx-font-weight: bold;
-                                  -fx-text-fill: white;" />
-
+                                  -fx-text-fill: white;"/>
                     <Label text="Manage officers, weapons and attendance"
                            style="-fx-font-size: 14px;
-                                  -fx-text-fill: #94A3B8;" />
-
+                                  -fx-text-fill: #94A3B8;"/>
                 </VBox>
 
                 <Region HBox.hgrow="ALWAYS"/>
 
-                <!-- SEARCH -->
-
-                <HBox alignment="CENTER_LEFT"
-                      spacing="10"
-                      prefWidth="380"
-                      prefHeight="46"
+                <HBox alignment="CENTER_LEFT" prefHeight="46" prefWidth="380" spacing="10"
                       style="-fx-background-color: #1E293B;
                              -fx-background-radius: 14;
                              -fx-padding: 0 14 0 14;">
-
-                    <Label text="🔍"
-                           style="-fx-font-size: 15px;" />
-
-                    <TextField promptText="Search officers..."
+                    <Label text="🔍" style="-fx-font-size: 15px;"/>
+                    <TextField fx:id="searchOfficers"
+                               promptText="Search officers..."
                                HBox.hgrow="ALWAYS"
                                style="-fx-background-color: transparent;
                                       -fx-text-fill: white;
                                       -fx-prompt-text-fill: #94A3B8;
-                                      -fx-border-color: transparent;" />
-
+                                      -fx-border-color: transparent;"/>
                 </HBox>
 
-                <!-- ALERT -->
-
-                <StackPane prefWidth="46"
-                           prefHeight="46"
+                <StackPane prefHeight="46" prefWidth="46"
                            style="-fx-background-color: #1E293B;
                                   -fx-background-radius: 14;">
-
-                    <Label text="🔔"
-                           style="-fx-font-size: 18px;" />
-
+                    <Label text="🔔" style="-fx-font-size: 18px;"/>
                 </StackPane>
-
             </HBox>
 
-            <!-- STATS CARDS -->
-
             <HBox spacing="18">
-
-                <!-- CARD 1 -->
-
-                <VBox spacing="12"
-                      prefWidth="260"
-                      prefHeight="130"
+                <VBox fx:id="totalOfficers" prefHeight="130" prefWidth="260" spacing="12"
                       style="-fx-background-color: linear-gradient(to bottom right,#2563EB,#1D4ED8);
                              -fx-background-radius: 22;
                              -fx-padding: 22;">
-
                     <Label text="👮 Total Officers"
-                           style="-fx-text-fill: #DBEAFE;
-                                  -fx-font-size: 15px;" />
-
+                           style="-fx-text-fill: #DBEAFE; -fx-font-size: 15px;"/>
                     <Label text="248"
-                           style="-fx-text-fill: white;
-                                  -fx-font-size: 42px;
-                                  -fx-font-weight: bold;" />
-
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
                     <Label text="+12 this month"
-                           style="-fx-text-fill: #BFDBFE;" />
-
+                           style="-fx-text-fill: #BFDBFE;"/>
                 </VBox>
 
-                <!-- CARD 2 -->
-
-                <VBox spacing="12"
-                      prefWidth="260"
-                      prefHeight="130"
+                <VBox fx:id="activeWeapons" prefHeight="130" prefWidth="260" spacing="12"
                       style="-fx-background-color: linear-gradient(to bottom right,#DC2626,#B91C1C);
                              -fx-background-radius: 22;
                              -fx-padding: 22;">
-
                     <Label text="🔫 Active Weapons"
-                           style="-fx-text-fill: #FECACA;
-                                  -fx-font-size: 15px;" />
-
+                           style="-fx-text-fill: #FECACA; -fx-font-size: 15px;"/>
                     <Label text="196"
-                           style="-fx-text-fill: white;
-                                  -fx-font-size: 42px;
-                                  -fx-font-weight: bold;" />
-
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
                     <Label text="All registered"
-                           style="-fx-text-fill: #FCA5A5;" />
-
+                           style="-fx-text-fill: #FCA5A5;"/>
                 </VBox>
 
-                <!-- CARD 3 -->
-
-                <VBox spacing="12"
-                      prefWidth="260"
-                      prefHeight="130"
+                <VBox fx:id="presentToday" prefHeight="130" prefWidth="260" spacing="12"
                       style="-fx-background-color: linear-gradient(to bottom right,#059669,#047857);
                              -fx-background-radius: 22;
                              -fx-padding: 22;">
-
                     <Label text="✅ Present Today"
-                           style="-fx-text-fill: #A7F3D0;
-                                  -fx-font-size: 15px;" />
-
+                           style="-fx-text-fill: #A7F3D0; -fx-font-size: 15px;"/>
                     <Label text="221"
-                           style="-fx-text-fill: white;
-                                  -fx-font-size: 42px;
-                                  -fx-font-weight: bold;" />
-
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
                     <Label text="89% attendance"
-                           style="-fx-text-fill: #6EE7B7;" />
-
+                           style="-fx-text-fill: #6EE7B7;"/>
                 </VBox>
 
-                <!-- CARD 4 -->
-
-                <VBox spacing="12"
-                      prefWidth="260"
-                      prefHeight="130"
+                <VBox fx:id="onHoliday" prefHeight="130" prefWidth="260" spacing="12"
                       style="-fx-background-color: linear-gradient(to bottom right,#F59E0B,#D97706);
                              -fx-background-radius: 22;
                              -fx-padding: 22;">
-
                     <Label text="📅 On Holiday"
-                           style="-fx-text-fill: #FDE68A;
-                                  -fx-font-size: 15px;" />
-
+                           style="-fx-text-fill: #FDE68A; -fx-font-size: 15px;"/>
                     <Label text="27"
-                           style="-fx-text-fill: white;
-                                  -fx-font-size: 42px;
-                                  -fx-font-weight: bold;" />
-
+                           style="-fx-text-fill: white; -fx-font-size: 42px; -fx-font-weight: bold;"/>
                     <Label text="Return this week"
-                           style="-fx-text-fill: #FCD34D;" />
-
+                           style="-fx-text-fill: #FCD34D;"/>
                 </VBox>
-
             </HBox>
 
-            <!-- TABLE SECTION -->
-
-            <VBox spacing="18"
-                  VBox.vgrow="ALWAYS"
+            <VBox spacing="18" VBox.vgrow="ALWAYS"
                   style="-fx-background-color: #111827;
                          -fx-background-radius: 24;
                          -fx-padding: 22;
                          -fx-border-color: #1E293B;
                          -fx-border-radius: 24;">
 
-                <!-- HEADER -->
-
                 <HBox alignment="CENTER_LEFT">
-
                     <VBox spacing="4">
-
                         <Label text="Officers List"
                                style="-fx-text-fill: white;
                                       -fx-font-size: 24px;
-                                      -fx-font-weight: bold;" />
-
+                                      -fx-font-weight: bold;"/>
                         <Label text="All registered police officers"
-                               style="-fx-text-fill: #94A3B8;" />
-
+                               style="-fx-text-fill: #94A3B8;"/>
                     </VBox>
 
                     <Region HBox.hgrow="ALWAYS"/>
 
-                    <Button text="+ Add Officer"
-                            prefHeight="42"
-                            style="-fx-background-color: #2563EB;
-                                   -fx-text-fill: white;
-                                   -fx-font-size: 14px;
-                                   -fx-font-weight: bold;
-                                   -fx-background-radius: 12;" />
 
                 </HBox>
 
-                <!-- TABLE -->
-
-                <TableView VBox.vgrow="ALWAYS"
+                <TableView fx:id="officersTable" VBox.vgrow="ALWAYS"
                            style="-fx-background-color: #0F172A;
                                   -fx-background-radius: 18;
                                   -fx-border-color: #1E293B;
                                   -fx-border-radius: 18;">
-
                     <columns>
-
-                        <TableColumn text="Matricule"
-                                     prefWidth="140" />
-
-                        <TableColumn text="First Name"
-                                     prefWidth="170" />
-
-                        <TableColumn text="Last Name"
-                                     prefWidth="170" />
-
-                        <TableColumn text="Grade"
-                                     prefWidth="170" />
-
-                        <TableColumn text="Gun ID"
-                                     prefWidth="160" />
-
-                        <TableColumn text="Bullets"
-                                     prefWidth="120" />
-
-                        <TableColumn text="Badge"
-                                     prefWidth="150" />
-
-                        <TableColumn text="Status"
-                                     prefWidth="140" />
-
+                        <TableColumn fx:id="colMatricule" prefWidth="140" text="Matricule"/>
+                        <TableColumn fx:id="colFirstName" prefWidth="170" text="First Name"/>
+                        <TableColumn fx:id="colLastName" prefWidth="170" text="Last Name"/>
+                        <TableColumn fx:id="colGrade" prefWidth="170" text="Grade"/>
+                        <TableColumn fx:id="colGunId" prefWidth="160" text="Gun ID"/>
+                        <TableColumn fx:id="colBullets" prefWidth="120" text="Bullets"/>
+                        <TableColumn fx:id="colBadge" prefWidth="150" text="Badge"/>
+                        <TableColumn fx:id="colStatus" prefWidth="140" text="Status"/>
                     </columns>
-
                 </TableView>
 
-                <!-- FOOTER -->
-
-                <HBox alignment="CENTER_LEFT"
-                      spacing="10">
-
+                <HBox alignment="CENTER_LEFT" spacing="10">
                     <Label text="Showing 1-10 of 248 officers"
-                           style="-fx-text-fill: #94A3B8;" />
+                           style="-fx-text-fill: #94A3B8;"/>
 
                     <Region HBox.hgrow="ALWAYS"/>
 
                     <Button text="Previous"
                             style="-fx-background-color: #1E293B;
                                    -fx-text-fill: white;
-                                   -fx-background-radius: 10;" />
-
+                                   -fx-background-radius: 10;"/>
                     <Button text="1"
                             style="-fx-background-color: #2563EB;
                                    -fx-text-fill: white;
-                                   -fx-background-radius: 10;" />
-
+                                   -fx-background-radius: 10;"/>
                     <Button text="2"
                             style="-fx-background-color: #1E293B;
                                    -fx-text-fill: white;
-                                   -fx-background-radius: 10;" />
-
+                                   -fx-background-radius: 10;"/>
                     <Button text="3"
                             style="-fx-background-color: #1E293B;
                                    -fx-text-fill: white;
-                                   -fx-background-radius: 10;" />
-
+                                   -fx-background-radius: 10;"/>
                     <Button text="Next"
                             style="-fx-background-color: #1E293B;
                                    -fx-text-fill: white;
-                                   -fx-background-radius: 10;" />
-
+                                   -fx-background-radius: 10;"/>
                 </HBox>
-
             </VBox>
-
         </VBox>
-
     </center>
 
 </BorderPane>

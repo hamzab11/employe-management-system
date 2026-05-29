@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.AddOfficerController"
+      spacing="15"
+      alignment="CENTER"
+      prefWidth="500"
+      prefHeight="500"
+      style="-fx-background-color: #0f172a; -fx-padding: 30;">
+
+    <Label text="Add Officer"
+           style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="fullNameField"
+               promptText="Full name"
+               maxWidth="300"/>
+
+    <TextField fx:id="rankField"
+               promptText="Rank"
+               maxWidth="300"/>
+
+    <TextField fx:id="badgeNumberField"
+               promptText="Badge number"
+               maxWidth="300"/>
+
+    <TextField fx:id="departmentField"
+               promptText="Department"
+               maxWidth="300"/>
+
+    <Label fx:id="messageLabel"
+           style="-fx-text-fill: #facc15; -fx-font-size: 14px;"/>
+
+    <Button text="Save Officer"
+            onAction="#handleSaveOfficer"
+            prefWidth="180"
+            style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+</VBox>
